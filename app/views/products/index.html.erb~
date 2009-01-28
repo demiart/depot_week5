@@ -1,7 +1,7 @@
 <h1>Listing products</h1>
 
 <table border='1' cellpadding='4'>
-  <tr>
+  <tr bgcolor='#cc9999'>
     <th>Title</th>
     <th>Description</th>
     <th>Image url</th>
