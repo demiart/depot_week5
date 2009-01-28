@@ -3,7 +3,10 @@ class ProductsController < ApplicationController
   # GET /products.xml
   def index
     @products = Product.find(:all)
-     
+    @products.each {|p|
+      p.price = p.price / 100.0
+    }
+ 
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @products }
@@ -13,7 +16,9 @@ class ProductsController < ApplicationController
   # GET /products/1
   # GET /products/1.xml
   def show
-    @product = Product.find(params[:id])
+    tempproduct = Product.find(params[:id])
+    tempproduct.price = tempproduct.price / 100.0
+    @product = tempproduct
 
     respond_to do |format|
       format.html # show.html.erb
@@ -42,9 +47,7 @@ class ProductsController < ApplicationController
   # POST /products
   # POST /products.xml
   def create
-    tempproduct = params[:product]
-    tempproduct[:price] = (tempproduct[:price].to_f * 100).to_i
-    @product = Product.new(tempproduct)
+    @product = Product.new(params[:product])
 
     respond_to do |format|
       if @product.save
@@ -61,13 +64,12 @@ class ProductsController < ApplicationController
   # PUT /products/1
   # PUT /products/1.xml
   def update
-    @product = Product.find(params[:id])
- 
-    tempproduct = params[:product]
-    tempproduct[:price] = (tempproduct[:price].to_f * 100).to_i
+    tempproduct = Product.find(params[:id])
+    tempproduct.price = (tempproduct.price * 100).to_i
+    @product = tempproduct
 
     respond_to do |format|
-      if @product.update_attributes(tempproduct)
+      if @product.update_attributes(params[:product])
         flash[:notice] = 'Product was successfully updated.'
         format.html { redirect_to(@product) }
         format.xml  { head :ok }
