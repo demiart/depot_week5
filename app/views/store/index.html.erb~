@@ -1,0 +1,11 @@
+<h1>Your Simian Catalog</h1>
+
+<% for product in @products %>
+  <div class="entry">
+    <%= image_tag(product.image_url) %>
+    <h3><%=h product.title %></h3>
+    <%= product.description %>
+    <div class="price-line">
+      <span class="price"><%= number_to_currency(product.price / 100.0) %></span>
+  </div>
+<% end %>
