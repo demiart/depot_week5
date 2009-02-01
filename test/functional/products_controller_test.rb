@@ -7,32 +7,46 @@ class ProductsControllerTest < ActionController::TestCase
     assert_not_nil assigns(:products)
   end
 
-  test "should get new" do
-    get :new
-    assert_response :success
-  end
-
-  test "should create product" do
-    assert_difference('Product.count') do
-      post :create, :product => { }
-    end
-
-    assert_redirected_to product_path(assigns(:product))
-  end
-
   test "should show product" do
     get :show, :id => products(:one).id
     assert_response :success
+    assert_tag :tag => 'b', :content => 'Title:'
+  end
+
+  test "should get new" do
+    get :new
+    assert_response :success
+    assert_tag :tag => 'input', :attributes => {:id => 'product_title'}
+    assert_tag :tag => 'textarea', :attributes => {:id => 'product_description'}
+    assert_tag :tag => 'input', :attributes => {:id => 'product_image_url'}
+    assert_tag :tag => 'input', :attributes => {:id => 'product_price'}
   end
 
   test "should get edit" do
     get :edit, :id => products(:one).id
     assert_response :success
+    assert_tag :tag => 'input', :attributes => {:id => 'product_title'}
+    assert_tag :tag => 'textarea', :attributes => {:id => 'product_description'}
+    assert_tag :tag => 'input', :attributes => {:id => 'product_image_url'}
+    assert_tag :tag => 'input', :attributes => {:id => 'product_price'}
+  end
+
+  test "should create product" do
+    assert_difference('Product.count') do
+      post :create, :product => { 
+        :title => 'test monkey',
+        :description => 'new monkey test',
+        :image_url => 'http://www.monkey.com/noimg.jpg',
+        :price => '1999'
+      }
+    end
+    assert_redirected_to product_path(assigns(:product))
   end
 
   test "should update product" do
-    put :update, :id => products(:one).id, :product => { }
-    assert_redirected_to product_path(assigns(:product))
+    put :update, :id => products(:one).id, :product => { 
+    }
+    assert_response :success
   end
 
   test "should destroy product" do
