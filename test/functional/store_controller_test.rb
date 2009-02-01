@@ -9,6 +9,7 @@ class StoreControllerTest < ActionController::TestCase
     Product.find_products_for_sale.each {|p|
       assert_tag :tag =>'h3', :content => p.title
       assert_tag :tag =>'img', :attributes => {:src => '/images/' + p.image_url}
+      # QUESTION: is sprintf or format better?
       assert_match /#{format("%.2f", p.price / 100.0)}/, @response.body  
     }
   end

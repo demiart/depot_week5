@@ -1,9 +1,9 @@
 require 'test_helper'
 
 class ProductTest < ActiveSupport::TestCase
-  test "product has price attr" do
+  test "product has price" do
     product = products(:one)
-    product.price = 10
+    product.price = 1000
     product.save!
   end
 
@@ -19,19 +19,19 @@ class ProductTest < ActiveSupport::TestCase
     assert product.errors.on(:description)
   end
 
-  test "product validates presence of image url" do
+  test "product validates presence of url" do
     product = Product.new
     assert !product.valid?
     assert product.errors.on(:image_url)
   end
   
-  test "product validates numericality of price" do
-    product = Product.new
-    product.price = 'bad val'
+  test "that price must be a number" do
+    product = products(:one)
+    product.price = 'bad value'
     assert !product.valid?
     assert product.errors.on(:price)
     product.price = 100
-    assert !product.valid?
+    assert product.valid?
     assert !product.errors.on(:price)
   end
 
@@ -46,22 +46,18 @@ class ProductTest < ActiveSupport::TestCase
     product.price = 0
     assert !product.valid?
     assert product.errors.on(:price)
+    product = products(:one)
     product.price = 1
-    assert !product.valid?
-    assert !product.errors.on(:price)
+    assert product.save!
   end
 
-  test "product validates uniqueness of title" do
-    product = Product.new
-    product.title = products(:one).title
+  test "that titles are unique" do
+    product = Product.new(products(:one).attributes)
     assert !product.valid?
     assert product.errors.on(:title)
-    product.title = 'this is a unique title'
-    assert !product.valid?
-    assert !product.errors.on(:title)
   end
 
-  test "product validates format of image url" do
+  test "urls must be formatted properly" do
     product = Product.new
     product.image_url = 'test.jpg'
     assert !product.valid?
@@ -80,5 +76,8 @@ class ProductTest < ActiveSupport::TestCase
   test "find products for sale" do
     products_for_sale = Product.find_products_for_sale
     assert products_for_sale
+    assert_equal Product.find(:all).sort_by {|p|
+      p.title
+    }, products_for_sale
   end
 end
