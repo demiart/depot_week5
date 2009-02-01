@@ -16,6 +16,14 @@
   background: #141;
 }
 
+#notice {
+  border: 2px solid red;
+  padding: 1em;
+  margin-bottom: 2em;
+  background-color: #f0f0f0;
+  font: bold smaller sans-serif;
+}
+
 #main {
   margin-left: 13em;
   padding-top: 4ex;
@@ -89,5 +97,17 @@ h1 {
   color: #44a;
   font-weight: bold;
   margin-right: 2em;
-  margin-bottom: 1em;
+}
+
+.cart-title {
+  font: 120% bold;
+}
+
+.item-price, .total-line {
+  text-align: right;
+}
+
+.total-line, .total-cell {
+  font-weight: bold;
+  border-top: 1px solid #595;
 }

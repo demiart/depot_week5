@@ -1,0 +1,16 @@
+<h2>Your Monkey Cart</h2>
+<table>
+  <% for item in @cart.items %>
+  <tr>
+    <td><%= item.quantity %>&times;</td>
+    <td><%=h item.title %></td>
+    <td class="item.price"><%= number_to_currency(item.price / 100.0) %></td>
+  </tr>
+  <% end %>
+  <tr class="total-line">
+    <td colspan="2">Total</td>
+    <td class="total-cell"><%= number_to_currency(@cart.total_price / 100.0) %></td>
+  </tr>
+</table>
+
+<%= button_to 'Empty cart', :action => 'empty_cart' %>
