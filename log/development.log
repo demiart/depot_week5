@@ -15011,3 +15011,2979 @@ Rendered store/_cart_item (0.4ms)
 Rendered store/_cart_item (0.4ms)
 Rendered store/_cart (2.2ms)
 Completed in 15ms (View: 12, DB: 2) | 200 OK [http://localhost/store]
+  [4;36;1mSQL (0.7ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (2.4ms)[0m   [0;1mCREATE TABLE "products" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "description" text, "image_url" varchar(255), "created_at" datetime, "updated_at" datetime, "price" integer) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.6ms)[0m   [0;1mCREATE TABLE "sessions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "session_id" varchar(255) NOT NULL, "data" text, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (1.6ms)[0m   [0mCREATE INDEX "index_sessions_on_session_id" ON "sessions" ("session_id")[0m
+  [4;36;1mSQL (2.1ms)[0m   [0;1mCREATE INDEX "index_sessions_on_updated_at" ON "sessions" ("updated_at")[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.9ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (2.4ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM "schema_migrations"[0m
+  [4;36;1mSQL (1.9ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090201003035')[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090127060004')[0m
+  [4;36;1mSQL (2.5ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090127061850')[0m
+  [4;35;1mSQL (2.3ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090128062643')[0m
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-02-07 12:21:23) [GET]
+  Session ID: cc268fd40795a91e3211c46467364363
+  [4;36;1mProduct Load (0.4ms)[0m   [0;1mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (2.3ms)
+Completed in 16ms (View: 13, DB: 1) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:21:29) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"3"}
+  [4;35;1mProduct Load (0.2ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 3) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.0ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (5.0ms)
+Completed in 10ms (View: 7, DB: 1) | 200 OK [http://localhost/store/add_to_cart/3]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:21:31) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;36;1mProduct Load (0.3ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (2.9ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (4.8ms)
+Completed in 10ms (View: 7, DB: 1) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:21:33) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;35;1mProduct Load (0.2ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.0ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (4.9ms)
+Completed in 68ms (View: 65, DB: 1) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:21:34) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;36;1mProduct Load (0.2ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.5ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (5.9ms)
+Completed in 11ms (View: 8, DB: 1) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:21:35) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;35;1mProduct Load (0.2ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (2.9ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (4.8ms)
+Completed in 10ms (View: 7, DB: 1) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:21:38) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"2"}
+  [4;36;1mProduct Load (0.2ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 2) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (2.9ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (5.3ms)
+Completed in 11ms (View: 7, DB: 1) | 200 OK [http://localhost/store/add_to_cart/2]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:21:39) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"2"}
+  [4;35;1mProduct Load (0.2ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 2) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (2.8ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (5.1ms)
+Completed in 10ms (View: 7, DB: 1) | 200 OK [http://localhost/store/add_to_cart/2]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:21:40) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"2"}
+  [4;36;1mProduct Load (0.2ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 2) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (2.9ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (5.3ms)
+Completed in 11ms (View: 7, DB: 2) | 200 OK [http://localhost/store/add_to_cart/2]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:21:43) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"2"}
+  [4;35;1mProduct Load (0.2ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 2) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.0ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (5.5ms)
+Completed in 11ms (View: 8, DB: 1) | 200 OK [http://localhost/store/add_to_cart/2]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:21:44) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"2"}
+  [4;36;1mProduct Load (0.2ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 2) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.7ms)
+Rendered store/_cart_item (0.5ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (6.2ms)
+Completed in 12ms (View: 8, DB: 1) | 200 OK [http://localhost/store/add_to_cart/2]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:21:44) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"2"}
+  [4;35;1mProduct Load (0.2ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 2) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.0ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.5ms)
+Rendered store/_cart (5.4ms)
+Completed in 11ms (View: 8, DB: 1) | 200 OK [http://localhost/store/add_to_cart/2]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:21:44) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"2"}
+  [4;36;1mProduct Load (0.2ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 2) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (2.9ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (5.2ms)
+Completed in 11ms (View: 7, DB: 1) | 200 OK [http://localhost/store/add_to_cart/2]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:21:45) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"2"}
+  [4;35;1mProduct Load (0.2ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 2) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (2.9ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (5.3ms)
+Completed in 11ms (View: 8, DB: 1) | 200 OK [http://localhost/store/add_to_cart/2]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:21:46) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"2"}
+  [4;36;1mProduct Load (0.2ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 2) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (2.8ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (5.1ms)
+Completed in 10ms (View: 7, DB: 1) | 200 OK [http://localhost/store/add_to_cart/2]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:21:46) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"2"}
+  [4;35;1mProduct Load (0.2ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 2) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.0ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (6.0ms)
+Completed in 11ms (View: 8, DB: 1) | 200 OK [http://localhost/store/add_to_cart/2]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:21:46) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"2"}
+  [4;36;1mProduct Load (0.2ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 2) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.3ms)
+Rendered store/_cart_item (1.1ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (6.6ms)
+Completed in 12ms (View: 9, DB: 2) | 200 OK [http://localhost/store/add_to_cart/2]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:21:47) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"2"}
+  [4;35;1mProduct Load (0.3ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 2) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.1ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (5.5ms)
+Completed in 11ms (View: 8, DB: 1) | 200 OK [http://localhost/store/add_to_cart/2]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:21:47) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"2"}
+  [4;36;1mProduct Load (0.2ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 2) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.6ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (6.1ms)
+Completed in 11ms (View: 8, DB: 1) | 200 OK [http://localhost/store/add_to_cart/2]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:21:47) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"2"}
+  [4;35;1mProduct Load (0.2ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 2) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (2.9ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (5.3ms)
+Completed in 11ms (View: 7, DB: 1) | 200 OK [http://localhost/store/add_to_cart/2]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:19) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"3"}
+  [4;36;1mProduct Load (0.2ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 3) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (2.8ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (5.1ms)
+Completed in 10ms (View: 7, DB: 2) | 200 OK [http://localhost/store/add_to_cart/3]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:21) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"3"}
+  [4;35;1mProduct Load (0.2ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 3) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (2.8ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (5.2ms)
+Completed in 10ms (View: 7, DB: 1) | 200 OK [http://localhost/store/add_to_cart/3]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:22) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"3"}
+  [4;36;1mProduct Load (0.2ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 3) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (2.9ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (5.3ms)
+Completed in 11ms (View: 7, DB: 1) | 200 OK [http://localhost/store/add_to_cart/3]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:23) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"3"}
+  [4;35;1mProduct Load (0.2ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 3) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (2.8ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (5.2ms)
+Completed in 10ms (View: 7, DB: 1) | 200 OK [http://localhost/store/add_to_cart/3]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:24) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"3"}
+  [4;36;1mProduct Load (0.3ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 3) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (2.9ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (5.3ms)
+Completed in 11ms (View: 7, DB: 1) | 200 OK [http://localhost/store/add_to_cart/3]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:26) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"3"}
+  [4;35;1mProduct Load (0.2ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 3) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (2.9ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (5.2ms)
+Completed in 10ms (View: 7, DB: 1) | 200 OK [http://localhost/store/add_to_cart/3]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:27) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"3"}
+  [4;36;1mProduct Load (0.2ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 3) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (2.9ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (5.5ms)
+Completed in 11ms (View: 8, DB: 1) | 200 OK [http://localhost/store/add_to_cart/3]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:27) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"3"}
+  [4;35;1mProduct Load (0.2ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 3) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.3ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (5.7ms)
+Completed in 11ms (View: 8, DB: 1) | 200 OK [http://localhost/store/add_to_cart/3]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:28) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"3"}
+  [4;36;1mProduct Load (0.8ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 3) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.1ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (5.4ms)
+Completed in 12ms (View: 8, DB: 2) | 200 OK [http://localhost/store/add_to_cart/3]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:28) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"3"}
+  [4;35;1mProduct Load (0.2ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 3) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (5.9ms)
+Completed in 11ms (View: 8, DB: 1) | 200 OK [http://localhost/store/add_to_cart/3]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:28) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"3"}
+  [4;36;1mProduct Load (0.2ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 3) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.2ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (5.6ms)
+Completed in 11ms (View: 8, DB: 1) | 200 OK [http://localhost/store/add_to_cart/3]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:29) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"3"}
+  [4;35;1mProduct Load (0.2ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 3) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.7ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (6.6ms)
+Completed in 12ms (View: 9, DB: 1) | 200 OK [http://localhost/store/add_to_cart/3]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:29) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"3"}
+  [4;36;1mProduct Load (0.3ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 3) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (2.9ms)
+Rendered store/_cart_item (0.5ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (5.3ms)
+Completed in 11ms (View: 8, DB: 1) | 200 OK [http://localhost/store/add_to_cart/3]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:30) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"3"}
+  [4;35;1mProduct Load (0.2ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 3) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (2.9ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (5.9ms)
+Completed in 11ms (View: 8, DB: 1) | 200 OK [http://localhost/store/add_to_cart/3]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:30) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"3"}
+  [4;36;1mProduct Load (0.2ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 3) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (2.9ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (5.3ms)
+Completed in 11ms (View: 7, DB: 2) | 200 OK [http://localhost/store/add_to_cart/3]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:30) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"3"}
+  [4;35;1mProduct Load (0.3ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 3) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (2.9ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (5.1ms)
+Completed in 11ms (View: 7, DB: 1) | 200 OK [http://localhost/store/add_to_cart/3]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:31) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"3"}
+  [4;36;1mProduct Load (0.2ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 3) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.0ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (5.6ms)
+Completed in 11ms (View: 8, DB: 2) | 200 OK [http://localhost/store/add_to_cart/3]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:31) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"3"}
+  [4;35;1mProduct Load (0.2ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 3) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (2.9ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (5.2ms)
+Completed in 10ms (View: 7, DB: 1) | 200 OK [http://localhost/store/add_to_cart/3]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:32) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"3"}
+  [4;36;1mProduct Load (0.2ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 3) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.0ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (5.4ms)
+Completed in 11ms (View: 8, DB: 1) | 200 OK [http://localhost/store/add_to_cart/3]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:32) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"3"}
+  [4;35;1mProduct Load (0.2ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 3) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (2.9ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (5.2ms)
+Completed in 11ms (View: 8, DB: 1) | 200 OK [http://localhost/store/add_to_cart/3]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:32) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"3"}
+  [4;36;1mProduct Load (0.2ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 3) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.0ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (5.4ms)
+Completed in 11ms (View: 8, DB: 1) | 200 OK [http://localhost/store/add_to_cart/3]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:34) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;35;1mProduct Load (0.2ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (2.8ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (5.1ms)
+Completed in 10ms (View: 7, DB: 1) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:35) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;36;1mProduct Load (0.2ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.6ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (6.1ms)
+Completed in 11ms (View: 8, DB: 1) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:35) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;35;1mProduct Load (0.2ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.0ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.5ms)
+Rendered store/_cart (6.1ms)
+Completed in 11ms (View: 8, DB: 1) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:35) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;36;1mProduct Load (0.3ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.0ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (6.0ms)
+Completed in 12ms (View: 8, DB: 1) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:35) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;35;1mProduct Load (0.2ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (2.8ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (5.2ms)
+Completed in 11ms (View: 7, DB: 1) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:36) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;36;1mProduct Load (0.2ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.2ms)
+Rendered store/_cart_item (0.5ms)
+Rendered store/_cart_item (0.9ms)
+Rendered store/_cart (6.3ms)
+Completed in 12ms (View: 8, DB: 2) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:36) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;35;1mProduct Load (0.2ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (2.9ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (5.2ms)
+Completed in 11ms (View: 7, DB: 1) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:36) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;36;1mProduct Load (0.2ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (2.8ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (5.7ms)
+Completed in 11ms (View: 8, DB: 2) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:37) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;35;1mProduct Load (0.2ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.7ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (6.2ms)
+Completed in 11ms (View: 8, DB: 1) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:37) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;36;1mProduct Load (0.3ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (4.2ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (6.6ms)
+Completed in 12ms (View: 9, DB: 1) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:37) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;35;1mProduct Load (0.3ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.1ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (5.5ms)
+Completed in 11ms (View: 8, DB: 1) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:37) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;36;1mProduct Load (0.3ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.0ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (5.3ms)
+Completed in 12ms (View: 8, DB: 2) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:37) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;35;1mProduct Load (0.2ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.1ms)
+Rendered store/_cart_item (0.5ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (5.7ms)
+Completed in 11ms (View: 8, DB: 1) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:37) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;36;1mProduct Load (0.3ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.6ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (6.0ms)
+Completed in 11ms (View: 8, DB: 1) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:37) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;35;1mProduct Load (0.2ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.7ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (6.2ms)
+Completed in 12ms (View: 8, DB: 1) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:38) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;36;1mProduct Load (0.2ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.0ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (5.3ms)
+Completed in 12ms (View: 8, DB: 2) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:38) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;35;1mProduct Load (0.3ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.2ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (5.7ms)
+Completed in 11ms (View: 8, DB: 1) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:38) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;36;1mProduct Load (0.3ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.0ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (5.4ms)
+Completed in 11ms (View: 8, DB: 2) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:38) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;35;1mProduct Load (0.2ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.8ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (6.2ms)
+Completed in 12ms (View: 9, DB: 2) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:38) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;36;1mProduct Load (0.2ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (2.8ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (5.1ms)
+Completed in 11ms (View: 7, DB: 1) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:38) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;35;1mProduct Load (0.2ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (2.9ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (5.2ms)
+Completed in 11ms (View: 7, DB: 1) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:39) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;36;1mProduct Load (0.2ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.2ms)
+Rendered store/_cart_item (0.5ms)
+Rendered store/_cart_item (1.0ms)
+Rendered store/_cart (6.5ms)
+Completed in 12ms (View: 9, DB: 2) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:39) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;35;1mProduct Load (0.2ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.0ms)
+Rendered store/_cart_item (1.0ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (6.1ms)
+Completed in 11ms (View: 8, DB: 2) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:39) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;36;1mProduct Load (0.3ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (4.2ms)
+Rendered store/_cart_item (0.5ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (7.5ms)
+Completed in 81ms (View: 10, DB: 1) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:39) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;35;1mProduct Load (0.2ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.2ms)
+Rendered store/_cart_item (1.0ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (6.1ms)
+Completed in 11ms (View: 8, DB: 1) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:39) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;36;1mProduct Load (0.3ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (4.0ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (6.6ms)
+Completed in 12ms (View: 9, DB: 1) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:39) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;35;1mProduct Load (0.2ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.1ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (5.4ms)
+Completed in 11ms (View: 8, DB: 1) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:40) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;36;1mProduct Load (0.2ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (2.9ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (5.2ms)
+Completed in 11ms (View: 7, DB: 1) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:40) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;35;1mProduct Load (0.2ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (2.9ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (5.2ms)
+Completed in 10ms (View: 7, DB: 2) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:40) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;36;1mProduct Load (0.2ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.0ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (15.1ms)
+Completed in 82ms (View: 79, DB: 1) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:40) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;35;1mProduct Load (0.2ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.1ms)
+Rendered store/_cart_item (1.0ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (6.2ms)
+Completed in 11ms (View: 8, DB: 1) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:40) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;36;1mProduct Load (0.3ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (2.9ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (5.3ms)
+Completed in 11ms (View: 8, DB: 1) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:40) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;35;1mProduct Load (0.2ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.0ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (5.4ms)
+Completed in 12ms (View: 8, DB: 1) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:41) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;36;1mProduct Load (0.2ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.5ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (6.0ms)
+Completed in 12ms (View: 8, DB: 2) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:41) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;35;1mProduct Load (0.3ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (2.9ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (5.3ms)
+Completed in 11ms (View: 8, DB: 1) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:41) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;36;1mProduct Load (0.2ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.0ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (5.5ms)
+Completed in 11ms (View: 8, DB: 2) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:41) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;35;1mProduct Load (0.3ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.2ms)
+Rendered store/_cart_item (0.5ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (5.9ms)
+Completed in 12ms (View: 9, DB: 2) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:41) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;36;1mProduct Load (0.2ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.7ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (6.1ms)
+Completed in 12ms (View: 8, DB: 1) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:42) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;35;1mProduct Load (0.2ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (2.9ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (5.3ms)
+Completed in 11ms (View: 8, DB: 2) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:42) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;36;1mProduct Load (0.2ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.0ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (6.0ms)
+Completed in 12ms (View: 8, DB: 1) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:42) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;35;1mProduct Load (0.2ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (2.9ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (5.9ms)
+Completed in 12ms (View: 8, DB: 1) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:42) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;36;1mProduct Load (0.3ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.2ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.5ms)
+Rendered store/_cart (6.7ms)
+Completed in 83ms (View: 9, DB: 1) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:42) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;35;1mProduct Load (0.2ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.6ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (6.1ms)
+Completed in 12ms (View: 8, DB: 2) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:42) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;36;1mProduct Load (0.2ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.0ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.5ms)
+Rendered store/_cart (5.6ms)
+Completed in 11ms (View: 8, DB: 1) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:43) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;35;1mProduct Load (0.2ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (2.9ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (5.3ms)
+Completed in 11ms (View: 8, DB: 1) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:43) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;36;1mProduct Load (0.2ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.1ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (5.6ms)
+Completed in 11ms (View: 8, DB: 1) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:43) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;35;1mProduct Load (0.2ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.0ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (5.4ms)
+Completed in 11ms (View: 8, DB: 1) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:43) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;36;1mProduct Load (0.3ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.9ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (6.5ms)
+Completed in 81ms (View: 77, DB: 1) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:43) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;35;1mProduct Load (0.2ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.6ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (6.1ms)
+Completed in 12ms (View: 8, DB: 1) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:44) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;36;1mProduct Load (0.3ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (2.9ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (5.3ms)
+Completed in 11ms (View: 7, DB: 2) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:44) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;35;1mProduct Load (0.2ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (2.9ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (5.4ms)
+Completed in 11ms (View: 8, DB: 1) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:44) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;36;1mProduct Load (0.2ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.0ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (5.4ms)
+Completed in 11ms (View: 8, DB: 1) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:44) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;35;1mProduct Load (0.2ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.0ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (5.5ms)
+Completed in 11ms (View: 8, DB: 2) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:44) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;36;1mProduct Load (0.3ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.4ms)
+Rendered store/_cart_item (0.5ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (6.0ms)
+Completed in 80ms (View: 9, DB: 1) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:45) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;35;1mProduct Load (0.3ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (6.0ms)
+Rendered store/_cart_item (0.5ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (12.3ms)
+Completed in 27ms (View: 20, DB: 2) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:45) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;36;1mProduct Load (0.6ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.8ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (6.5ms)
+Completed in 13ms (View: 9, DB: 2) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:45) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;35;1mProduct Load (0.3ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.3ms)
+Rendered store/_cart_item (1.0ms)
+Rendered store/_cart_item (0.5ms)
+Rendered store/_cart (6.7ms)
+Completed in 14ms (View: 10, DB: 2) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:45) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;36;1mProduct Load (0.3ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (2.9ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (5.2ms)
+Completed in 11ms (View: 8, DB: 1) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:45) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;35;1mProduct Load (0.2ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.0ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (5.7ms)
+Completed in 12ms (View: 8, DB: 2) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:45) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;36;1mProduct Load (0.2ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.1ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (5.6ms)
+Completed in 81ms (View: 78, DB: 1) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:46) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;35;1mProduct Load (0.2ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.0ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (5.3ms)
+Completed in 11ms (View: 8, DB: 1) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:46) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;36;1mProduct Load (0.2ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.0ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (6.1ms)
+Completed in 12ms (View: 8, DB: 1) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:46) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;35;1mProduct Load (0.2ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.6ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (6.1ms)
+Completed in 11ms (View: 8, DB: 1) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:46) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;36;1mProduct Load (0.2ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (2.9ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (5.3ms)
+Completed in 11ms (View: 8, DB: 2) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:47) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;35;1mProduct Load (0.3ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.0ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (5.4ms)
+Completed in 12ms (View: 8, DB: 1) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:47) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;36;1mProduct Load (0.3ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.0ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.5ms)
+Rendered store/_cart (5.5ms)
+Completed in 12ms (View: 8, DB: 2) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:47) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;35;1mProduct Load (0.3ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.1ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (5.4ms)
+Completed in 11ms (View: 8, DB: 1) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:47) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;36;1mProduct Load (0.2ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (1.0ms)
+Rendered store/_cart (6.7ms)
+Completed in 12ms (View: 9, DB: 1) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:47) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;35;1mProduct Load (0.2ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.0ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (5.3ms)
+Completed in 11ms (View: 8, DB: 1) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:47) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;36;1mProduct Load (0.2ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (2.9ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (5.3ms)
+Completed in 11ms (View: 8, DB: 1) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:48) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;35;1mProduct Load (0.2ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.1ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (5.6ms)
+Completed in 11ms (View: 8, DB: 1) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:48) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;36;1mProduct Load (0.2ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (74.8ms)
+Completed in 81ms (View: 77, DB: 1) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:48) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;35;1mProduct Load (0.2ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.1ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (5.5ms)
+Completed in 11ms (View: 8, DB: 1) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:48) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;36;1mProduct Load (0.2ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (2.9ms)
+Rendered store/_cart_item (0.5ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (5.4ms)
+Completed in 11ms (View: 8, DB: 1) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:48) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;35;1mProduct Load (0.3ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.0ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (6.1ms)
+Completed in 12ms (View: 8, DB: 1) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:49) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;36;1mProduct Load (0.2ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.0ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (5.5ms)
+Completed in 11ms (View: 8, DB: 1) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:49) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;35;1mProduct Load (0.8ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.0ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (5.3ms)
+Completed in 12ms (View: 8, DB: 2) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:49) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;36;1mProduct Load (0.2ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.2ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (6.4ms)
+Completed in 12ms (View: 9, DB: 2) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:49) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;35;1mProduct Load (0.8ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.0ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (5.3ms)
+Completed in 12ms (View: 8, DB: 2) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:49) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;36;1mProduct Load (0.3ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.1ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (5.6ms)
+Completed in 12ms (View: 8, DB: 1) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:50) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;35;1mProduct Load (0.2ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.0ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (5.5ms)
+Completed in 11ms (View: 8, DB: 1) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:50) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;36;1mProduct Load (0.3ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.0ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (5.3ms)
+Completed in 11ms (View: 7, DB: 1) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:50) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;35;1mProduct Load (0.2ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.1ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (5.5ms)
+Completed in 11ms (View: 8, DB: 1) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:50) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;36;1mProduct Load (0.2ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.1ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (6.2ms)
+Completed in 12ms (View: 9, DB: 1) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:50) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;35;1mProduct Load (0.2ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.0ms)
+Rendered store/_cart_item (0.5ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (5.5ms)
+Completed in 11ms (View: 8, DB: 2) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:51) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;36;1mProduct Load (0.2ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.0ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (6.0ms)
+Completed in 11ms (View: 8, DB: 1) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:51) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;35;1mProduct Load (0.2ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.2ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (5.6ms)
+Completed in 11ms (View: 8, DB: 2) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:51) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;36;1mProduct Load (0.3ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.0ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (5.4ms)
+Completed in 12ms (View: 8, DB: 1) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:51) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;35;1mProduct Load (0.2ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.6ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (6.1ms)
+Completed in 12ms (View: 8, DB: 1) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:52) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;36;1mProduct Load (0.2ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.1ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (5.6ms)
+Completed in 11ms (View: 8, DB: 1) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:52) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;35;1mProduct Load (0.2ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.2ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (5.7ms)
+Completed in 11ms (View: 8, DB: 1) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:52) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;36;1mProduct Load (0.2ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.3ms)
+Rendered store/_cart_item (0.7ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (6.2ms)
+Completed in 12ms (View: 8, DB: 1) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:52) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;35;1mProduct Load (0.2ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.2ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (5.7ms)
+Completed in 11ms (View: 8, DB: 1) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:53) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;36;1mProduct Load (0.2ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.1ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (5.7ms)
+Completed in 11ms (View: 8, DB: 1) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:53) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;35;1mProduct Load (0.2ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.1ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (5.6ms)
+Completed in 11ms (View: 8, DB: 1) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:53) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;36;1mProduct Load (0.2ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.3ms)
+Rendered store/_cart_item (0.5ms)
+Rendered store/_cart_item (1.0ms)
+Rendered store/_cart (6.5ms)
+Completed in 12ms (View: 9, DB: 2) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:53) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;35;1mProduct Load (0.3ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.7ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (6.1ms)
+Completed in 12ms (View: 9, DB: 2) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:54) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;36;1mProduct Load (0.3ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.2ms)
+Rendered store/_cart_item (0.9ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (6.3ms)
+Completed in 12ms (View: 9, DB: 2) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:55) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;35;1mProduct Load (0.2ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.0ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (5.3ms)
+Completed in 11ms (View: 8, DB: 1) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:55) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;36;1mProduct Load (0.2ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.6ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (6.3ms)
+Completed in 12ms (View: 8, DB: 1) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:55) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;35;1mProduct Load (0.2ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.7ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (6.1ms)
+Completed in 11ms (View: 8, DB: 1) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:55) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;36;1mProduct Load (0.2ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.4ms)
+Rendered store/_cart_item (0.5ms)
+Rendered store/_cart_item (0.8ms)
+Rendered store/_cart (7.2ms)
+Completed in 13ms (View: 10, DB: 2) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:56) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;35;1mProduct Load (0.3ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (4.5ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (9.1ms)
+Completed in 17ms (View: 13, DB: 1) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:56) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;36;1mProduct Load (0.3ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.3ms)
+Rendered store/_cart_item (0.6ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (7.5ms)
+Completed in 14ms (View: 10, DB: 2) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:56) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;35;1mProduct Load (0.3ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (2.9ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (5.4ms)
+Completed in 11ms (View: 8, DB: 1) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:56) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;36;1mProduct Load (0.2ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.7ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (6.2ms)
+Completed in 12ms (View: 8, DB: 1) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:56) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;35;1mProduct Load (0.2ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.1ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (5.7ms)
+Completed in 11ms (View: 8, DB: 1) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:57) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;36;1mProduct Load (0.3ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.0ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (5.4ms)
+Completed in 12ms (View: 8, DB: 2) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:57) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;35;1mProduct Load (0.2ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.0ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (5.7ms)
+Completed in 11ms (View: 8, DB: 1) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:57) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;36;1mProduct Load (0.2ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.2ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (5.8ms)
+Completed in 12ms (View: 8, DB: 1) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:57) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;35;1mProduct Load (0.2ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (2.9ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (5.3ms)
+Completed in 11ms (View: 8, DB: 1) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:57) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;36;1mProduct Load (0.3ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (2.9ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (5.4ms)
+Completed in 11ms (View: 8, DB: 1) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:58) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;35;1mProduct Load (0.2ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (2.9ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (5.2ms)
+Completed in 10ms (View: 7, DB: 1) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:58) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;36;1mProduct Load (0.2ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.3ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (5.9ms)
+Completed in 11ms (View: 8, DB: 2) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:58) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;35;1mProduct Load (0.3ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.0ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (5.5ms)
+Completed in 11ms (View: 8, DB: 1) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:58) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;36;1mProduct Load (0.3ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.2ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (5.8ms)
+Completed in 12ms (View: 8, DB: 2) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:58) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;35;1mProduct Load (0.3ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.0ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (5.3ms)
+Completed in 11ms (View: 8, DB: 1) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:59) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;36;1mProduct Load (0.2ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (2.9ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (5.3ms)
+Completed in 12ms (View: 8, DB: 1) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:59) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;35;1mProduct Load (0.2ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.2ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (5.6ms)
+Completed in 11ms (View: 8, DB: 1) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:59) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;36;1mProduct Load (0.2ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.2ms)
+Rendered store/_cart_item (0.5ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (5.8ms)
+Completed in 11ms (View: 8, DB: 2) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:22:59) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;35;1mProduct Load (0.2ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (2.9ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (5.5ms)
+Completed in 11ms (View: 8, DB: 1) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:23:00) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;36;1mProduct Load (0.3ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.1ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (5.9ms)
+Completed in 11ms (View: 8, DB: 2) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:23:00) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;35;1mProduct Load (0.3ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (2.9ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (5.2ms)
+Completed in 11ms (View: 8, DB: 1) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:23:00) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;36;1mProduct Load (0.2ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.1ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (5.5ms)
+Completed in 11ms (View: 8, DB: 1) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:23:00) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;35;1mProduct Load (0.3ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (2.9ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (5.3ms)
+Completed in 12ms (View: 8, DB: 1) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:23:01) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;36;1mProduct Load (0.2ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.4ms)
+Rendered store/_cart_item (0.5ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (6.5ms)
+Completed in 12ms (View: 9, DB: 2) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:23:01) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;35;1mProduct Load (0.2ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (2.9ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (5.3ms)
+Completed in 11ms (View: 8, DB: 1) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:23:01) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;36;1mProduct Load (0.3ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.0ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (5.3ms)
+Completed in 11ms (View: 8, DB: 1) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:23:01) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;35;1mProduct Load (0.2ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.0ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (5.6ms)
+Completed in 12ms (View: 8, DB: 1) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:23:01) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;36;1mProduct Load (0.2ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.6ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (6.1ms)
+Completed in 11ms (View: 8, DB: 1) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:23:02) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;35;1mProduct Load (0.2ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.1ms)
+Rendered store/_cart_item (0.5ms)
+Rendered store/_cart_item (0.5ms)
+Rendered store/_cart (5.7ms)
+Completed in 11ms (View: 8, DB: 1) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:23:02) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;36;1mProduct Load (0.3ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.1ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (5.5ms)
+Completed in 12ms (View: 8, DB: 1) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:23:06) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"3"}
+  [4;35;1mProduct Load (0.2ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 3) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (2.9ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (5.3ms)
+Completed in 11ms (View: 7, DB: 2) | 200 OK [http://localhost/store/add_to_cart/3]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:23:07) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"3"}
+  [4;36;1mProduct Load (0.2ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 3) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (2.9ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (5.3ms)
+Completed in 11ms (View: 8, DB: 1) | 200 OK [http://localhost/store/add_to_cart/3]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:23:07) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"3"}
+  [4;35;1mProduct Load (0.2ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 3) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.2ms)
+Rendered store/_cart_item (0.5ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (5.7ms)
+Completed in 11ms (View: 8, DB: 2) | 200 OK [http://localhost/store/add_to_cart/3]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:23:07) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"3"}
+  [4;36;1mProduct Load (0.3ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 3) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (2.9ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (5.4ms)
+Completed in 11ms (View: 8, DB: 1) | 200 OK [http://localhost/store/add_to_cart/3]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:23:08) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"3"}
+  [4;35;1mProduct Load (0.2ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 3) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.2ms)
+Rendered store/_cart_item (1.0ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (6.2ms)
+Completed in 11ms (View: 8, DB: 1) | 200 OK [http://localhost/store/add_to_cart/3]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:23:08) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"3"}
+  [4;36;1mProduct Load (0.2ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 3) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.2ms)
+Rendered store/_cart_item (1.0ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (6.4ms)
+Completed in 12ms (View: 9, DB: 1) | 200 OK [http://localhost/store/add_to_cart/3]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:23:08) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"3"}
+  [4;35;1mProduct Load (0.2ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 3) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.7ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (6.1ms)
+Completed in 12ms (View: 9, DB: 1) | 200 OK [http://localhost/store/add_to_cart/3]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:23:09) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"3"}
+  [4;36;1mProduct Load (0.2ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 3) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.6ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (6.1ms)
+Completed in 11ms (View: 8, DB: 1) | 200 OK [http://localhost/store/add_to_cart/3]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:23:09) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"3"}
+  [4;35;1mProduct Load (0.2ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 3) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.0ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (5.4ms)
+Completed in 11ms (View: 8, DB: 1) | 200 OK [http://localhost/store/add_to_cart/3]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:23:09) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"3"}
+  [4;36;1mProduct Load (0.2ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 3) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.0ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (5.3ms)
+Completed in 12ms (View: 8, DB: 1) | 200 OK [http://localhost/store/add_to_cart/3]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:23:10) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"3"}
+  [4;35;1mProduct Load (0.3ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 3) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (2.9ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (5.3ms)
+Completed in 11ms (View: 8, DB: 1) | 200 OK [http://localhost/store/add_to_cart/3]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:23:10) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"3"}
+  [4;36;1mProduct Load (0.3ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 3) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.1ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (5.6ms)
+Completed in 12ms (View: 8, DB: 1) | 200 OK [http://localhost/store/add_to_cart/3]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:23:10) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"3"}
+  [4;35;1mProduct Load (0.2ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 3) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.0ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (5.4ms)
+Completed in 11ms (View: 8, DB: 1) | 200 OK [http://localhost/store/add_to_cart/3]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:23:11) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"3"}
+  [4;36;1mProduct Load (0.2ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 3) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.0ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (5.4ms)
+Completed in 11ms (View: 8, DB: 1) | 200 OK [http://localhost/store/add_to_cart/3]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-02-07 12:30:39) [GET]
+  Session ID: cc268fd40795a91e3211c46467364363
+  [4;36;1mProduct Load (0.4ms)[0m   [0;1mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (2.8ms)
+Completed in 16ms (View: 14, DB: 1) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:30:42) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"3"}
+  [4;35;1mProduct Load (0.2ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 3) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.1ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (5.5ms)
+Completed in 11ms (View: 8, DB: 1) | 200 OK [http://localhost/store/add_to_cart/3]
+
+
+Processing StoreController#empty_cart (for 127.0.0.1 at 2009-02-07 12:30:43) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6"}
+Redirected to actionindex
+Completed in 2ms (DB: 1) | 302 Found [http://localhost/store/empty_cart]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-02-07 12:30:43) [GET]
+  Session ID: cc268fd40795a91e3211c46467364363
+  [4;36;1mProduct Load (0.4ms)[0m   [0;1mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart (0.7ms)
+Completed in 18ms (View: 11, DB: 1) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:30:46) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"3"}
+  [4;35;1mProduct Load (0.2ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 3) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.1ms)
+Rendered store/_cart (4.5ms)
+Completed in 13ms (View: 7, DB: 1) | 200 OK [http://localhost/store/add_to_cart/3]
+
+
+Processing StoreController#empty_cart (for 127.0.0.1 at 2009-02-07 12:30:50) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6"}
+Redirected to actionindex
+Completed in 2ms (DB: 1) | 302 Found [http://localhost/store/empty_cart]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-02-07 12:30:50) [GET]
+  Session ID: cc268fd40795a91e3211c46467364363
+  [4;36;1mProduct Load (0.4ms)[0m   [0;1mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart (0.6ms)
+Completed in 17ms (View: 11, DB: 1) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:30:52) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;35;1mProduct Load (0.2ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (2.9ms)
+Rendered store/_cart (4.3ms)
+Completed in 13ms (View: 6, DB: 1) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:30:55) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"2"}
+  [4;36;1mProduct Load (0.2ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 2) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (2.8ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (4.7ms)
+Completed in 10ms (View: 7, DB: 1) | 200 OK [http://localhost/store/add_to_cart/2]
+
+
+Processing StoreController#empty_cart (for 127.0.0.1 at 2009-02-07 12:30:57) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6"}
+Redirected to actionindex
+Completed in 2ms (DB: 1) | 302 Found [http://localhost/store/empty_cart]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-02-07 12:30:57) [GET]
+  Session ID: cc268fd40795a91e3211c46467364363
+  [4;35;1mProduct Load (0.4ms)[0m   [0mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart (0.7ms)
+Completed in 17ms (View: 11, DB: 1) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:30:59) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"3"}
+  [4;36;1mProduct Load (0.2ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 3) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (68.4ms)
+Rendered store/_cart (69.9ms)
+Completed in 79ms (View: 72, DB: 1) | 200 OK [http://localhost/store/add_to_cart/3]
+
+
+Processing StoreController#empty_cart (for 127.0.0.1 at 2009-02-07 12:31:03) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6"}
+Redirected to actionindex
+Completed in 2ms (DB: 1) | 302 Found [http://localhost/store/empty_cart]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-02-07 12:31:03) [GET]
+  Session ID: cc268fd40795a91e3211c46467364363
+  [4;35;1mProduct Load (0.4ms)[0m   [0mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart (0.6ms)
+Completed in 17ms (View: 11, DB: 1) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:31:04) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;36;1mProduct Load (0.2ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.0ms)
+Rendered store/_cart (4.4ms)
+Completed in 13ms (View: 7, DB: 1) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#empty_cart (for 127.0.0.1 at 2009-02-07 12:31:07) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6"}
+Redirected to actionindex
+Completed in 2ms (DB: 1) | 302 Found [http://localhost/store/empty_cart]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-02-07 12:31:07) [GET]
+  Session ID: cc268fd40795a91e3211c46467364363
+  [4;35;1mProduct Load (0.4ms)[0m   [0mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart (0.7ms)
+Completed in 17ms (View: 12, DB: 1) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:31:09) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"3"}
+  [4;36;1mProduct Load (0.2ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 3) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.1ms)
+Rendered store/_cart (4.5ms)
+Completed in 13ms (View: 7, DB: 1) | 200 OK [http://localhost/store/add_to_cart/3]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:31:11) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;35;1mProduct Load (0.2ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.0ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (5.1ms)
+Completed in 69ms (View: 66, DB: 1) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#empty_cart (for 127.0.0.1 at 2009-02-07 12:31:13) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6"}
+Redirected to actionindex
+Completed in 2ms (DB: 1) | 302 Found [http://localhost/store/empty_cart]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-02-07 12:31:13) [GET]
+  Session ID: cc268fd40795a91e3211c46467364363
+  [4;36;1mProduct Load (0.4ms)[0m   [0;1mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart (0.6ms)
+Completed in 17ms (View: 11, DB: 1) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:31:17) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;35;1mProduct Load (0.2ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.0ms)
+Rendered store/_cart (4.4ms)
+Completed in 13ms (View: 7, DB: 1) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:31:20) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"3"}
+  [4;36;1mProduct Load (0.2ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 3) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (2.9ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (4.8ms)
+Completed in 10ms (View: 7, DB: 1) | 200 OK [http://localhost/store/add_to_cart/3]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:31:21) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"3"}
+  [4;35;1mProduct Load (0.2ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 3) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (2.9ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (4.8ms)
+Completed in 11ms (View: 8, DB: 1) | 200 OK [http://localhost/store/add_to_cart/3]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:31:23) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"2"}
+  [4;36;1mProduct Load (0.2ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 2) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (2.8ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (5.2ms)
+Completed in 10ms (View: 7, DB: 1) | 200 OK [http://localhost/store/add_to_cart/2]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:31:24) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"2"}
+  [4;35;1mProduct Load (0.2ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 2) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (71.6ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (74.1ms)
+Completed in 80ms (View: 76, DB: 1) | 200 OK [http://localhost/store/add_to_cart/2]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:31:24) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"2"}
+  [4;36;1mProduct Load (0.2ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 2) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.7ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (6.1ms)
+Completed in 12ms (View: 8, DB: 1) | 200 OK [http://localhost/store/add_to_cart/2]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:31:25) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"2"}
+  [4;35;1mProduct Load (0.2ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 2) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.0ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (5.3ms)
+Completed in 12ms (View: 8, DB: 1) | 200 OK [http://localhost/store/add_to_cart/2]
+
+
+Processing StoreController#empty_cart (for 127.0.0.1 at 2009-02-07 12:31:28) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6"}
+Redirected to actionindex
+Completed in 2ms (DB: 1) | 302 Found [http://localhost/store/empty_cart]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-02-07 12:31:28) [GET]
+  Session ID: cc268fd40795a91e3211c46467364363
+  [4;36;1mProduct Load (0.4ms)[0m   [0;1mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart (0.6ms)
+Completed in 17ms (View: 11, DB: 1) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-02-07 12:38:00) [GET]
+  Session ID: cc268fd40795a91e3211c46467364363
+  [4;36;1mProduct Load (0.5ms)[0m   [0;1mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart (0.7ms)
+Completed in 16ms (View: 12, DB: 1) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:38:02) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"3"}
+  [4;35;1mProduct Load (0.2ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 3) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.1ms)
+Rendered store/_cart (4.6ms)
+Completed in 14ms (View: 7, DB: 1) | 200 OK [http://localhost/store/add_to_cart/3]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:38:05) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;36;1mProduct Load (0.2ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (2.9ms)
+Rendered store/_cart_item (0.5ms)
+Rendered store/_cart (4.9ms)
+Completed in 10ms (View: 7, DB: 1) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:38:06) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;35;1mProduct Load (0.2ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.1ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (5.1ms)
+Completed in 11ms (View: 7, DB: 2) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#empty_cart (for 127.0.0.1 at 2009-02-07 12:38:07) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6"}
+Redirected to actionindex
+Completed in 2ms (DB: 1) | 302 Found [http://localhost/store/empty_cart]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-02-07 12:38:07) [GET]
+  Session ID: cc268fd40795a91e3211c46467364363
+  [4;36;1mProduct Load (0.4ms)[0m   [0;1mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart (0.7ms)
+Completed in 18ms (View: 12, DB: 1) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-02-07 12:39:51) [GET]
+  Session ID: cc268fd40795a91e3211c46467364363
+  [4;36;1mProduct Load (0.4ms)[0m   [0;1mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart (0.7ms)
+Completed in 16ms (View: 12, DB: 1) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:39:53) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"3"}
+  [4;35;1mProduct Load (0.3ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 3) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.0ms)
+Rendered store/_cart (4.5ms)
+Completed in 14ms (View: 7, DB: 1) | 200 OK [http://localhost/store/add_to_cart/3]
+
+
+Processing StoreController#empty_cart (for 127.0.0.1 at 2009-02-07 12:39:56) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6"}
+Redirected to actionindex
+Completed in 2ms (DB: 1) | 302 Found [http://localhost/store/empty_cart]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-02-07 12:39:56) [GET]
+  Session ID: cc268fd40795a91e3211c46467364363
+  [4;36;1mProduct Load (0.4ms)[0m   [0;1mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart (0.6ms)
+Completed in 18ms (View: 12, DB: 1) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:39:58) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;35;1mProduct Load (0.2ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.1ms)
+Rendered store/_cart (4.6ms)
+Completed in 70ms (View: 7, DB: 1) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:39:59) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;36;1mProduct Load (0.2ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.0ms)
+Rendered store/_cart (4.5ms)
+Completed in 10ms (View: 7, DB: 1) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:40:00) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;35;1mProduct Load (0.2ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.1ms)
+Rendered store/_cart (4.8ms)
+Completed in 10ms (View: 7, DB: 1) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#empty_cart (for 127.0.0.1 at 2009-02-07 12:40:01) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6"}
+Redirected to actionindex
+Completed in 2ms (DB: 1) | 302 Found [http://localhost/store/empty_cart]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-02-07 12:40:01) [GET]
+  Session ID: cc268fd40795a91e3211c46467364363
+  [4;36;1mProduct Load (0.4ms)[0m   [0;1mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart (0.6ms)
+Completed in 17ms (View: 10, DB: 1) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-02-07 12:50:08) [GET]
+  Session ID: cc268fd40795a91e3211c46467364363
+  [4;36;1mProduct Load (0.5ms)[0m   [0;1mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart (0.7ms)
+Completed in 16ms (View: 12, DB: 1) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:50:10) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"3"}
+  [4;35;1mProduct Load (0.2ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 3) [0m
+Redirected to actionindex
+Completed in 7ms (DB: 1) | 302 Found [http://localhost/store/add_to_cart/3]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-02-07 12:50:10) [GET]
+  Session ID: cc268fd40795a91e3211c46467364363
+  [4;36;1mProduct Load (0.4ms)[0m   [0;1mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (1.9ms)
+Completed in 14ms (View: 12, DB: 2) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:52:45) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"2"}
+  [4;35;1mProduct Load (0.2ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 2) [0m
+Redirected to actionindex
+Completed in 3ms (DB: 1) | 302 Found [http://localhost/store/add_to_cart/2]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-02-07 12:52:45) [GET]
+  Session ID: cc268fd40795a91e3211c46467364363
+  [4;36;1mProduct Load (0.4ms)[0m   [0;1mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart_item (0.5ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (2.3ms)
+Completed in 16ms (View: 14, DB: 2) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:52:48) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;35;1mProduct Load (0.2ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Redirected to actionindex
+Completed in 3ms (DB: 1) | 302 Found [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-02-07 12:52:48) [GET]
+  Session ID: cc268fd40795a91e3211c46467364363
+  [4;36;1mProduct Load (0.5ms)[0m   [0;1mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart_item (0.5ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (2.9ms)
+Completed in 16ms (View: 13, DB: 2) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:52:50) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"3"}
+  [4;35;1mProduct Load (0.2ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 3) [0m
+Redirected to actionindex
+Completed in 3ms (DB: 1) | 302 Found [http://localhost/store/add_to_cart/3]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-02-07 12:52:50) [GET]
+  Session ID: cc268fd40795a91e3211c46467364363
+  [4;36;1mProduct Load (0.4ms)[0m   [0;1mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (2.6ms)
+Completed in 15ms (View: 13, DB: 2) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#empty_cart (for 127.0.0.1 at 2009-02-07 12:52:52) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6"}
+Redirected to actionindex
+Completed in 2ms (DB: 1) | 302 Found [http://localhost/store/empty_cart]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-02-07 12:52:52) [GET]
+  Session ID: cc268fd40795a91e3211c46467364363
+  [4;35;1mProduct Load (0.4ms)[0m   [0mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart (0.6ms)
+Completed in 17ms (View: 11, DB: 1) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:52:55) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;36;1mProduct Load (0.2ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Redirected to actionindex
+Completed in 7ms (DB: 1) | 302 Found [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-02-07 12:52:55) [GET]
+  Session ID: cc268fd40795a91e3211c46467364363
+  [4;35;1mProduct Load (0.5ms)[0m   [0mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (1.8ms)
+Completed in 82ms (View: 79, DB: 2) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:52:59) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"2"}
+  [4;36;1mProduct Load (0.2ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 2) [0m
+Redirected to actionindex
+Completed in 3ms (DB: 1) | 302 Found [http://localhost/store/add_to_cart/2]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-02-07 12:52:59) [GET]
+  Session ID: cc268fd40795a91e3211c46467364363
+  [4;35;1mProduct Load (0.4ms)[0m   [0mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (2.2ms)
+Completed in 15ms (View: 13, DB: 1) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:53:00) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"2"}
+  [4;36;1mProduct Load (0.2ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 2) [0m
+Redirected to actionindex
+Completed in 3ms (DB: 1) | 302 Found [http://localhost/store/add_to_cart/2]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-02-07 12:53:00) [GET]
+  Session ID: cc268fd40795a91e3211c46467364363
+  [4;35;1mProduct Load (0.4ms)[0m   [0mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (2.2ms)
+Completed in 15ms (View: 12, DB: 2) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:53:01) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"2"}
+  [4;36;1mProduct Load (0.2ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 2) [0m
+Redirected to actionindex
+Completed in 3ms (DB: 1) | 302 Found [http://localhost/store/add_to_cart/2]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-02-07 12:53:01) [GET]
+  Session ID: cc268fd40795a91e3211c46467364363
+  [4;35;1mProduct Load (0.4ms)[0m   [0mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (2.2ms)
+Completed in 15ms (View: 13, DB: 1) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#empty_cart (for 127.0.0.1 at 2009-02-07 12:53:03) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6"}
+Redirected to actionindex
+Completed in 2ms (DB: 1) | 302 Found [http://localhost/store/empty_cart]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-02-07 12:53:03) [GET]
+  Session ID: cc268fd40795a91e3211c46467364363
+  [4;36;1mProduct Load (0.4ms)[0m   [0;1mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart (0.7ms)
+Completed in 18ms (View: 12, DB: 1) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:53:08) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"3"}
+  [4;35;1mProduct Load (0.2ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 3) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.0ms)
+Rendered store/_cart (4.4ms)
+Completed in 13ms (View: 7, DB: 1) | 200 OK [http://localhost/store/add_to_cart/3]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:53:12) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;36;1mProduct Load (0.2ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (2.9ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (4.8ms)
+Completed in 10ms (View: 7, DB: 1) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#empty_cart (for 127.0.0.1 at 2009-02-07 12:53:14) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6"}
+Redirected to actionindex
+Completed in 2ms (DB: 1) | 302 Found [http://localhost/store/empty_cart]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-02-07 12:53:14) [GET]
+  Session ID: cc268fd40795a91e3211c46467364363
+  [4;35;1mProduct Load (0.4ms)[0m   [0mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart (0.6ms)
+Completed in 17ms (View: 11, DB: 1) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:53:21) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"3"}
+  [4;36;1mProduct Load (0.2ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 3) [0m
+Redirected to actionindex
+Completed in 7ms (DB: 1) | 302 Found [http://localhost/store/add_to_cart/3]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-02-07 12:53:21) [GET]
+  Session ID: cc268fd40795a91e3211c46467364363
+  [4;35;1mProduct Load (0.4ms)[0m   [0mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (1.8ms)
+Completed in 14ms (View: 12, DB: 2) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:53:23) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"1"}
+  [4;36;1mProduct Load (0.2ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Redirected to actionindex
+Completed in 3ms (DB: 1) | 302 Found [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-02-07 12:53:23) [GET]
+  Session ID: cc268fd40795a91e3211c46467364363
+  [4;35;1mProduct Load (0.4ms)[0m   [0mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (2.2ms)
+Completed in 15ms (View: 13, DB: 2) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-07 12:53:58) [POST]
+  Session ID: cc268fd40795a91e3211c46467364363
+  Parameters: {"commit"=>"Add to cart", "authenticity_token"=>"9916e797110dd7660cabedf5789f5cc0c99d1aa6", "id"=>"2"}
+  [4;36;1mProduct Load (0.2ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 2) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (2.9ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (5.3ms)
+Completed in 11ms (View: 7, DB: 1) | 200 OK [http://localhost/store/add_to_cart/2]

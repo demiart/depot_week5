@@ -12,16 +12,17 @@ class StoreController < ApplicationController
       redirect_to_index("Invalid product")
     else
       @cart = find_cart
-      @cart.add_product(product)
+      @current_item = @cart.add_product(product)
       respond_to do |format|
-        format.js
+        format.js if request.xhr?
+        format.html {redirect_to_index}
       end   
     end 
   end
 
   def empty_cart
     session[:cart] = nil
-    redirect_to_index("Your cart is currently empty")
+    redirect_to_index
   end
 
   private
