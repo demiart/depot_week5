@@ -40,19 +40,20 @@ class ProductsControllerTest < ActionController::TestCase
         :price => '1999'
       }
     end
+    assert_match /created/i, flash[:notice]
     assert_redirected_to product_path(assigns(:product))
   end
 
   test "should update product" do
     put :update, :id => products(:one).id, :product => { 
-      :title => 'super awesome monkey'
+      :title => 'super awesome monkey',
+      :description => products(:one).description,
+      :image_url => products(:one).image_url,
+      :price => products(:one).price
     }
-    
-    # NOTE: I do not know why these fail and what needs to be done to make them pass.  It appears that updating on the site works and that there is a redirect that happens.
-    # assert_redirected_to product_path(assigns(:product))
-    # assert_equal 'super awesome monkey', Product.find(products(:one).id).title
-    #NOTE: this is what the response gets when run in test
-    assert_response :success
+    assert_match /updated/i, flash[:notice]
+    assert_redirected_to product_path(assigns(:product))
+    assert_equal 'super awesome monkey', Product.find(products(:one).id).title
   end
 
   test "should destroy product" do
