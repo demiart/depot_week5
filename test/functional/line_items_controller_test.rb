@@ -1,6 +1,9 @@
 require 'test_helper'
 
 class LineItemsControllerTest < ActionController::TestCase
+  def setup
+    @request.session[:user_id] = users(:one).id
+  end
 
   test "should get index" do
     get :index
