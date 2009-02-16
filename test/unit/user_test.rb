@@ -25,8 +25,7 @@ class UserTest < ActiveSupport::TestCase
   end
 
   def test_authenticate
-#TODO: why is this not working???
-#    assert User.authenticate('testuser', 'mypass')
+    assert User.authenticate('testuser', 'mypass')
   end
 
   def test_failed_authenticate
