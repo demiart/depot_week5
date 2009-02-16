@@ -39,6 +39,12 @@ class User < ActiveRecord::Base
     Digest::SHA1.hexdigest(string_to_hash)
   end
 
+  def after_destroy
+    if User.count.zero?
+      raise "Can't delete last user"
+    end
+  end
+
 private
 
   def password_non_blank
