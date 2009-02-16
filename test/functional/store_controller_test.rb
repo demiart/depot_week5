@@ -6,6 +6,51 @@ class StoreControllerTest < ActionController::TestCase
     assert session[:cart]
   end
 
+  test "checkout redirects on empty with message" do
+    get :index
+    assert cart = session[:cart]
+    post 'checkout'
+    assert_redirected_to :action => 'index'
+    get :index
+    assert_match /your cart is empty/i, @response.body
+  end
+
+  test "checkout not redirected on full cart" do
+    get :index
+    assert cart = session[:cart]
+    cart.add_product(products(:one))
+    post 'checkout'
+    assert_match /please enter your details/i, @response.body
+  end
+
+  test "save order works with good order data" do
+    get :index
+    assert cart = session[:cart]
+    cart.add_product(products(:one))
+    post 'save_order', :order => {
+      :name => 'demi',
+      :address => 'somewhere', 
+      :email => 'demi@demi.com',
+      :pay_type => 'cc'
+    }
+    assert_redirected_to :action => :index
+    get :index
+    assert_match /thank you for your order/i, @response.body    
+  end
+
+  test "save order fails with bad order data" do
+    get :index
+    assert cart = session[:cart]
+    cart.add_product(products(:one))
+    post 'save_order', :order => {
+      :name => 'demi',
+      :address => 'somewhere', 
+      :email => 'demi@demi.com',
+      :pay_type => 'junkvalue'
+    }
+    assert_match /there were problems/i, @response.body 
+  end
+
   test "adding to cart works" do
    get :index
    assert cart = session[:cart]
