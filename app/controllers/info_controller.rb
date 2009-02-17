@@ -5,6 +5,8 @@ class InfoController < ApplicationController
     respond_to do |format|
       format.html
       format.xml { render :layout => false }
+      format.atom { render :layout => false }
+      format.json { render :layout => false, :json => @product.to_json(:include => :orders) }
     end
   end
 

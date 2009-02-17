@@ -6,6 +6,17 @@ class InfoControllerTest < ActionController::TestCase
     li.save!
   end  
 
+  test "can get json info on order" do
+    @request.env['HTTP_ACCEPT'] = 'application/json'
+    get :who_bought, :id => products(:one).id
+    assert_match /\"product\":/, @response.body
+  end
+
+  test "can get atom info on order" do
+    @request.env['HTTP_ACCEPT'] = 'application/atom+xml'
+    get :who_bought, :id => products(:one).id
+    assert_tag :tag => 'link', :attributes => { :type => 'application/atom+xml' }
+  end
 
   test "can get xml info on order" do
     @request.env['HTTP_ACCEPT'] = 'application/xml'
