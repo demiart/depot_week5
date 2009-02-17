@@ -1,1 +1,8 @@
-
+<h3>People Who Bought <%= @product.title %></h3>
+<ul>
+  <% @orders.each do |o| -%>
+    <li>
+      <%= mail_to o.email, o.name %>
+    </li>
+  <% end -%>
+</ul>
