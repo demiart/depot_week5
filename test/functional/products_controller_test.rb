@@ -5,6 +5,16 @@ class ProductsControllerTest < ActionController::TestCase
     @request.session[:user_id] = users(:one).id
   end
 
+  test "can get order through line item" do
+    li = LineItem.new( :product_id => products(:one).id, :order_id => orders(:one).id, :quantity => 1, :total_price => 1000)
+    assert li.save!
+    myprod = products(:one)
+    orders = myprod.orders
+    assert_not_nil orders
+    assert_equal 1, orders.length
+    assert_equal 'productbuyer', orders[0].name
+  end
+
   test "should get index" do
     get :index
     assert_response :success

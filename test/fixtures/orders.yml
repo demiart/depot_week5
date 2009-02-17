@@ -1,13 +1,8 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 one:
-  name: MyString
-  address: MyText
-  email: MyString
-  pay_type: MyString
+  name: productbuyer
+  address: someaddress
+  email: email@email.com
+  pay_type: cc
 
-two:
-  name: MyString
-  address: MyText
-  email: MyString
-  pay_type: MyString
