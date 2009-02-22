@@ -1,0 +1,8 @@
+es:
+  layout:
+    title:      "Mega-mono marqueta"
+    side:
+      home:      "Inicio"
+      questions: "Preguntas"
+      news:      "Noticias"
+      contact:   "Contacto"
