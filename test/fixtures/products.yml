@@ -5,9 +5,18 @@ one:
   description: First
   image_url: Monkey1.jpg
   price: 1395
+  locale: en
 
 two:
   title: Monkey2
   description: Second
   image_url: Monkey2.gif
   price: 255
+  locale: en
+
+three:
+  title: Mono1
+  description: Tr&eacute;s
+  image_url: Monkey3.png
+  price: 666
+  locale: es

@@ -11,7 +11,7 @@ class Product < ActiveRecord::Base
 		      :message	  => 'must be a URL of GIF, JPG or PNG image.'
 
   def self.find_products_for_sale
-    find(:all, :order => "title")
+    find(:all, :order => "title", :conditions => {:locale => I18n.locale})
   end
       
 protected

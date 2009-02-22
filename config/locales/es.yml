@@ -8,13 +8,23 @@ es:
         delimiter: "."
         format: "%n&nbsp;%u"
   activerecord:
+    attributes:
+      order:
+        address:  "Direcci&oacute;n"
+        email:    "Email"
+        name:     "Nombre"
+        pay_type: "Forma de pago"
     errors:
       template:
         body:     "Hay problemas con los siguientes campos:"
         header:
-          one:    "1 error ha impedido que {{mode}} se guarde"
-          other:  "{{count}} errores had impedido que este {{mode}} se guarde"
-    
+          one:    "1 error ha impedido que {{model}} se guarde"
+          other:  "{{count}} errores ha impedido que este {{model}} se guarde"
+      messages:
+        inclusion: "no est&aacute; incluido en la lista"
+        blank:    "no puede quedar en blanco"    
+    models:
+      order:      "pedido"
   checkout:
     legend:       "Por favor, introduzca sus datos"
     name:         "Nombre"
@@ -23,6 +33,8 @@ es:
     pay_type:     "Pagar con"
     pay_prompt:   "Seleccione un m\xC3\xA9todo de pago"
     submit:       "Realizar Pedido"
+  flash:
+    thanks:       "Gracias por su pedido, gran mono"
   layout:
     cart:
       title:      "Su Carrito des Monos"

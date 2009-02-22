@@ -35,7 +35,7 @@ class StoreControllerTest < ActionController::TestCase
     }
     assert_redirected_to :action => :index
     get :index
-    assert_match /thank you for your order/i, @response.body    
+    assert_match /thanks for your order/i, @response.body    
   end
 
   test "save order fails with bad order data" do
