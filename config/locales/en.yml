@@ -1,8 +1,25 @@
 en:
+  number:
+    currency:
+      format:
+        unit: "$"
+        precision: 2
+        separator: "."
+        delimiter: ","
+        format: "%u%n"
   layout: 
+    cart:
+      title:        "Your Monkey Cart"
+      button: 
+        empty:      "Empty Cart"
+        checkout:   "Checkout"
     title:          "Mega-monkey Mart"
     side:
       home:         "Home"
       questions:    "Questions"
       news:         "News"
       contact:      "Contact"
+  main:
+    title:          "Your Monkey Catalog"
+    button:
+      add:          "Add to Cart"

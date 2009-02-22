@@ -1,4 +1,4 @@
-<h1>Your Simian Catalog</h1>
+<h1><%= I18n.t 'main.title' %></h1>
 
 <% for product in @products %>
   <div class="entry">
@@ -8,7 +8,7 @@
     <div class="price-line">
       <span class="price"><%= number_to_currency(product.price / 100.0) %></span>
       <% form_remote_tag :url => {:action => 'add_to_cart', :id => product} do %>
-      <%= submit_tag "Add to cart" %>
+      <%= submit_tag I18n.t('main.button.add') %>
       <% end %>
     </div>
   </div>

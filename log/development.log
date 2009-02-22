@@ -31325,3 +31325,114 @@ Rendering template within layouts/store
 Rendering store/index
 Rendered store/_cart (1.3ms)
 Completed in 19ms (View: 14, DB: 1) | 200 OK [http://localhost/store?locale=es]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-02-21 17:17:24) [GET]
+  Session ID: 4eea294ce778eefc3c7a8dec21922119
+  [4;36;1mProduct Load (0.4ms)[0m   [0;1mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart (1.3ms)
+Completed in 19ms (View: 15, DB: 1) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-02-21 17:17:29) [GET]
+  Session ID: 4eea294ce778eefc3c7a8dec21922119
+  Parameters: {"locale"=>"en"}
+  [4;35;1mProduct Load (0.4ms)[0m   [0mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart (0.7ms)
+Completed in 17ms (View: 12, DB: 1) | 200 OK [http://localhost/store?locale=en]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-02-21 17:17:32) [GET]
+  Session ID: 4eea294ce778eefc3c7a8dec21922119
+  Parameters: {"locale"=>"es"}
+  [4;36;1mProduct Load (0.5ms)[0m   [0;1mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart (1.4ms)
+Completed in 21ms (View: 16, DB: 1) | 200 OK [http://localhost/store?locale=es]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-02-21 17:17:56) [GET]
+  Session ID: 4eea294ce778eefc3c7a8dec21922119
+  Parameters: {"locale"=>"en"}
+  [4;35;1mProduct Load (0.4ms)[0m   [0mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart (0.8ms)
+Completed in 17ms (View: 13, DB: 1) | 200 OK [http://localhost/store?locale=en]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-02-21 17:18:06) [GET]
+  Session ID: 4eea294ce778eefc3c7a8dec21922119
+  Parameters: {"locale"=>"es"}
+  [4;36;1mProduct Load (0.4ms)[0m   [0;1mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart (1.4ms)
+Completed in 19ms (View: 14, DB: 1) | 200 OK [http://localhost/store?locale=es]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-02-21 17:18:10) [GET]
+  Session ID: 4eea294ce778eefc3c7a8dec21922119
+  Parameters: {"locale"=>"en"}
+  [4;35;1mProduct Load (0.4ms)[0m   [0mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart (0.7ms)
+Completed in 17ms (View: 12, DB: 1) | 200 OK [http://localhost/store?locale=en]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-02-21 17:18:14) [GET]
+  Session ID: 4eea294ce778eefc3c7a8dec21922119
+  Parameters: {"locale"=>"es"}
+  [4;36;1mProduct Load (0.4ms)[0m   [0;1mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart (1.3ms)
+Completed in 19ms (View: 14, DB: 1) | 200 OK [http://localhost/store?locale=es]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-02-21 17:27:19) [GET]
+  Session ID: 4eea294ce778eefc3c7a8dec21922119
+  Parameters: {"locale"=>"es"}
+  [4;35;1mProduct Load (0.4ms)[0m   [0mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart (1.4ms)
+Completed in 21ms (View: 16, DB: 1) | 200 OK [http://localhost/store?locale=es]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-02-21 17:27:26) [POST]
+  Session ID: 4eea294ce778eefc3c7a8dec21922119
+  Parameters: {"commit"=>"Añadir al Carrito", "authenticity_token"=>"bebefdd44a9f48e0700755705d7cc10a1af872b2", "id"=>"1"}
+  [4;36;1mProduct Load (0.2ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (2.7ms)
+Rendered store/_cart (9.8ms)
+Completed in 53ms (View: 15, DB: 1) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-02-21 17:27:33) [GET]
+  Session ID: 4eea294ce778eefc3c7a8dec21922119
+  Parameters: {"locale"=>"en"}
+  [4;35;1mProduct Load (0.4ms)[0m   [0mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart_item (0.4ms)
+Rendered store/_cart (2.0ms)
+Completed in 16ms (View: 14, DB: 2) | 200 OK [http://localhost/store?locale=en]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-02-21 17:27:38) [GET]
+  Session ID: 4eea294ce778eefc3c7a8dec21922119
+  Parameters: {"locale"=>"es"}
+  [4;36;1mProduct Load (0.4ms)[0m   [0;1mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart_item (1.0ms)
+Rendered store/_cart (3.1ms)
+Completed in 19ms (View: 16, DB: 2) | 200 OK [http://localhost/store?locale=es]
