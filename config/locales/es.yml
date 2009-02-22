@@ -7,6 +7,22 @@ es:
         separator: ","
         delimiter: "."
         format: "%n&nbsp;%u"
+  activerecord:
+    errors:
+      template:
+        body:     "Hay problemas con los siguientes campos:"
+        header:
+          one:    "1 error ha impedido que {{mode}} se guarde"
+          other:  "{{count}} errores had impedido que este {{mode}} se guarde"
+    
+  checkout:
+    legend:       "Por favor, introduzca sus datos"
+    name:         "Nombre"
+    address:      "Direcci&oacute;n"
+    email:        "Email"
+    pay_type:     "Pagar con"
+    pay_prompt:   "Seleccione un m\xC3\xA9todo de pago"
+    submit:       "Realizar Pedido"
   layout:
     cart:
       title:      "Su Carrito des Monos"

@@ -7,6 +7,14 @@ en:
         separator: "."
         delimiter: ","
         format: "%u%n"
+  checkout:
+    legend:         "Please Enter your Details"
+    name:           "Name"
+    address:        "Address"
+    email:          "Email"
+    pay_type:       "Pay with"
+    pay_prompt:     "Select a payment method"
+    submit:         "Place Order"
   layout: 
     cart:
       title:        "Your Monkey Cart"
