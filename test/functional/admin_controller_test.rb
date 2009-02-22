@@ -1,13 +1,27 @@
 require 'test_helper'
 
 class AdminControllerTest < ActionController::TestCase
-  def setup
-    @request.session[:user_id] = users(:one).id
+  
+  test "index requires authentication" do 
+    get :index
+    assert_redirected_to :controller => "admin", :action => "login" 
   end
 
-  def test_good_login
-    post :login, :name => 'testname', :password => 'mypass'
-#    assert_redirected_to 'index'  
-#    assert_not_nil session[:user_id]
+  test "logged in ok on index" do
+    @request.session[:user_id] = users(:one).id
+    get :index
+    assert_response :success
+  end
+
+  test "notice to log in if not logged in"  do
+    get :index
+    assert_match /please log in/i, flash[:notice]
+  end
+
+  test "password failure" do
+    name = users(:one).name
+    post :login, :name => name, :password => 'junk'
+    assert_template "login"
+    assert_match /invalid/i, flash[:notice]
   end
 end

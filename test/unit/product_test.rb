@@ -73,11 +73,11 @@ class ProductTest < ActiveSupport::TestCase
     assert product.errors.on(:image_url)
   end
 
-  test "find products for sale" do
+  test "find products for sale (in en)" do
     products_for_sale = Product.find_products_for_sale
     assert products_for_sale
     assert_equal Product.find(:all).sort_by {|p|
       p.title
-    }, products_for_sale
+    }.select {|p| p.locale == 'en'}, products_for_sale
   end
 end
