@@ -88,4 +88,49 @@ class StoreControllerTest < ActionController::TestCase
       assert_match /#{"%.2f" %  (p.price / 100.0)}/, @response.body  
     }
   end
+
+  test "spanish localization, title" do
+    get :index, :locale => 'es'
+    assert_tag :tag => "div", :attributes => {:id => "banner"}, :content => /marqueta/
+  end
+
+  test "spanish localiation, cart title" do
+    get :index, :locale => 'es'
+    assert_tag :tag => "div", :attributes => {:class => "cart-title"}, :content => /Carrito/
+  end
+
+  test "spanish localization, side" do
+    get :index, :locale => 'es'
+    assert_tag :tag => "a", :content => /inicio/i
+    assert_tag :tag => "a", :content => /preguntas/i
+    assert_tag :tag => "a", :content => /noticias/i
+    assert_tag :tag => "a", :content => /contacto/i
+  end
+
+  test "spanish localization, cart" do
+    get :index, :locale => 'es'
+    cart = session[:cart]
+    xhr :post, :add_to_cart, {:id => products(:three).id}
+    assert_equal 1, cart.items.length
+    assert_match /total-cell[^"]*\"[^>]*>\d+,\d\d[^\$]*\$US/, @response.body
+    assert_match /input[^>]*Vaciar Carrito/i, @response.body
+    assert_match /input[^>]*Comprar/i, @response.body
+  end
+
+  test "spanish localization, checkout and errors" do
+    get :index, :locale => 'es'
+    cart = session[:cart]
+    xhr :post, :add_to_cart, {:id => products(:three).id}
+    post "checkout"
+    assert_response :success
+    assert_match /introduzca\ssus\sdatos/i, @response.body
+    assert_tag :tag => "label", :content => "Nombre"
+    assert_tag :tag => "label", :content => "Direcci&oacute;n"
+    assert_tag :tag => "label", :content => "Email"
+    assert_tag :tag => "label", :content => "Pagar con"
+    assert_tag :tag => "option", :content => /Seleccione/
+    post "save_order"
+    #no data - should have 5 errors
+    assert_match /5\serrores/, @response.body
+  end
 end
